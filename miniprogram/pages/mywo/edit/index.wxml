@@ -1,0 +1,75 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card">
+    <view class="label">故障现象</view>
+    <textarea placeholder="描述故障现象" data-field="fault" bindinput="onInput" value="{{form.fault}}"></textarea>
+  </view>
+
+  <view class="card">
+    <view class="label">处理步骤</view>
+    <block wx:for="{{form.steps}}" wx:key="index">
+      <view class="item-row">
+        <input placeholder="步骤描述" data-index="{{index}}" bindinput="onStepInput" value="{{item.content}}" />
+        <button size="mini" data-index="{{index}}" bindtap="removeStep">删除</button>
+      </view>
+    </block>
+    <button size="mini" bindtap="addStep">新增步骤</button>
+  </view>
+
+  <view class="card">
+    <view class="label">处理结果</view>
+    <textarea placeholder="处理结果" data-field="result" bindinput="onInput" value="{{form.result}}"></textarea>
+  </view>
+
+  <view class="card">
+    <view class="label">配件列表</view>
+    <block wx:for="{{form.parts}}" wx:key="index">
+      <view class="item-row">
+        <input placeholder="配件名称" data-index="{{index}}" data-field="name" bindinput="onPartInput" value="{{item.name}}" />
+        <input placeholder="数量" type="number" data-index="{{index}}" data-field="qty" bindinput="onPartInput" value="{{item.qty}}" />
+        <button size="mini" data-index="{{index}}" bindtap="removePart">删除</button>
+      </view>
+    </block>
+    <button size="mini" bindtap="addPart">新增配件</button>
+  </view>
+
+  <view class="card">
+    <view class="label">费用明细</view>
+    <block wx:for="{{form.expenses}}" wx:key="index">
+      <view class="expense-item">
+        <input placeholder="日期" data-index="{{index}}" data-field="date" bindinput="onExpenseInput" value="{{item.date}}" />
+        <input placeholder="金额" type="number" data-index="{{index}}" data-field="amount" bindinput="onExpenseInput" value="{{item.amount}}" />
+        <input placeholder="说明" data-index="{{index}}" data-field="description" bindinput="onExpenseInput" value="{{item.description}}" />
+        <button size="mini" data-index="{{index}}" bindtap="uploadReceipt">上传单据</button>
+        <view wx:if="{{item.receipts.length}}">已上传 {{item.receipts.length}} 张</view>
+        <button size="mini" data-index="{{index}}" bindtap="removeExpense">删除明细</button>
+      </view>
+    </block>
+    <button size="mini" bindtap="addExpense">新增费用</button>
+  </view>
+
+  <view class="card">
+    <view class="label">机器数据备份</view>
+    <switch checked="{{form.backupDone}}" bindchange="onBackupToggle" />
+  </view>
+
+  <view class="card">
+    <view class="label">实际开始</view>
+    <picker mode="date" value="{{form.actualStart}}" bindchange="onActualStartChange">
+      <view class="picker">{{form.actualStart || '请选择日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="label">实际结束</view>
+    <picker mode="date" value="{{form.actualEnd}}" bindchange="onActualEndChange">
+      <view class="picker">{{form.actualEnd || '请选择日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="button-row">
+    <button type="primary" bindtap="save">保存</button>
+    <button bindtap="goSubmit">提交预览</button>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card" wx:if="{{workOrder}}">
+    <view class="title">工单号：{{workOrder._id}}</view>
+    <view>客户：{{workOrder.customer}}</view>
+    <view>类型：{{workOrder.extra.type || '-'}}</view>
+    <view>类别：{{workOrder.extra.category || '-'}}</view>
+    <view>状态：{{workOrder.status}}</view>
+    <view>技术员：{{workOrder.assignedTo || '-'}}</view>
+    <view>计划日期：{{workOrder.extra.planDate || '-'}}</view>
+    <view>费用合计：{{workOrder.expenseTotal || 0}}</view>
+    <view>备份：{{workOrder.backupDone ? '是' : '否'}}</view>
+    <view>评分：{{workOrder.score || '-'}}</view>
+  </view>
+
+  <view class="card">
+    <view class="button-row">
+      <button size="mini" bindtap="goAssign">派单/改派</button>
+      <button size="mini" bindtap="goApprove">审批</button>
+      <button size="mini" bindtap="createScoreToken">生成评分链接</button>
+    </view>
+    <view wx:if="{{scoreToken}}">Token：{{scoreToken}}</view>
+  </view>
+</view>

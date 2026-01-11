@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/dashboard/index",
+    "pages/wo/list/index",
+    "pages/wo/detail/index",
+    "pages/wo/create/index",
+    "pages/wo/assign/index",
+    "pages/wo/approve/index",
+    "pages/mywo/list/index",
+    "pages/mywo/detail/index",
+    "pages/mywo/edit/index",
+    "pages/mywo/submit/index",
+    "pages/score/index",
+    "pages/ticket-create/index",
+    "pages/ticket-detail/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "工单系统"
+  }
+}

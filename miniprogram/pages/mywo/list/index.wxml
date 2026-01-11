@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <block wx:for="{{list}}" wx:key="_id">
+    <view class="card" bindtap="goDetail" data-id="{{item._id}}">
+      <view class="title">工单号：{{item._id}}</view>
+      <view>客户：{{item.customer}}</view>
+      <view>状态：{{item.status}}</view>
+      <view>计划日期：{{item.extra.planDate || '-'}}</view>
+      <view>费用合计：{{item.expenseTotal || 0}}</view>
+    </view>
+  </block>
+</view>

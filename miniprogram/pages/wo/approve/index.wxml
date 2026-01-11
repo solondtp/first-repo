@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="card">
+    <button type="primary" bindtap="approve">审批通过</button>
+  </view>
+
+  <view class="card">
+    <view class="label">驳回原因*</view>
+    <textarea placeholder="请输入驳回原因" bindinput="onReasonInput"></textarea>
+    <button type="warn" bindtap="reject">驳回</button>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="card" wx:if="{{ticket}}">
+    <view>标题：{{ticket.title}}</view>
+    <view>客户：{{ticket.customer}}</view>
+    <view>状态：{{ticket.status}}</view>
+    <view>备份完成：{{ticket.backupDone ? '是' : '否'}}</view>
+  </view>
+
+  <view class="card">
+    <view>派单</view>
+    <input placeholder="负责人 user _id" data-field="assigneeId" bindinput="onInput" />
+    <button size="mini" bindtap="assignTicket">派单</button>
+    <button size="mini" bindtap="startProgress">开始处理</button>
+  </view>
+
+  <view class="card">
+    <view class="button-row">
+      <button size="mini" bindtap="submitTicket">提交审批</button>
+      <button size="mini" bindtap="approveTicket">审批通过</button>
+      <button size="mini" bindtap="rejectTicket">驳回</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view>客户评分</view>
+    <button size="mini" bindtap="createScoreToken">生成评分链接</button>
+    <view wx:if="{{scoreToken}}">Token: {{scoreToken}}</view>
+    <input placeholder="评分 1-5" type="number" data-field="score" bindinput="onInput" />
+    <input placeholder="评论" data-field="scoreComment" bindinput="onInput" />
+    <button size="mini" bindtap="submitScoreAsSales">销售代评分</button>
+  </view>
+</view>

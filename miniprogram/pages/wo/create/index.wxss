@@ -1,0 +1,14 @@
+.label {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 80px;
+}
+
+.picker {
+  padding: 8px 0;
+  color: #333;
+}
