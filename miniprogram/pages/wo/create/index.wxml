@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="card">
+    <view class="label">客户名*</view>
+    <input placeholder="请输入客户名" data-field="customer" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">类型*</view>
+    <input placeholder="如：巡检/安装" data-field="type" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">类别*</view>
+    <input placeholder="如：硬件/软件" data-field="category" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">优先级</view>
+    <picker mode="selector" range="{{priorities}}" bindchange="onPriorityChange">
+      <view class="picker">{{form.priority}}</view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="label">计划日期</view>
+    <picker mode="date" value="{{form.planDate}}" bindchange="onPlanDateChange">
+      <view class="picker">{{form.planDate || '请选择日期'}} </view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="label">设备信息</view>
+    <input placeholder="型号/序列号" data-field="deviceInfo" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">描述</view>
+    <textarea placeholder="问题描述" data-field="description" bindinput="onInput"></textarea>
+  </view>
+
+  <view class="card">
+    <view class="label">机器数据备份完成</view>
+    <switch checked="{{form.backupDone}}" bindchange="onBackupToggle" />
+  </view>
+
+  <button type="primary" bindtap="submit">提交工单</button>
+</view>

@@ -1,0 +1,8 @@
+.title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.button-row button {
+  margin-right: 8px;
+}

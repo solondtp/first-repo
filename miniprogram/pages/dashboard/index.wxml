@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="card">
+    <view class="label">技术员ID</view>
+    <input placeholder="输入技术员用户ID" data-field="engineerId" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">销售ID</view>
+    <input placeholder="输入销售用户ID" data-field="salesId" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">状态</view>
+    <input placeholder="ASSIGNED/APPROVED 等" data-field="status" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view class="label">开始日期</view>
+    <picker mode="date" value="{{filters.startDate}}" bindchange="onStartDateChange">
+      <view class="picker">{{filters.startDate || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="label">结束日期</view>
+    <picker mode="date" value="{{filters.endDate}}" bindchange="onEndDateChange">
+      <view class="picker">{{filters.endDate || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <button type="primary" bindtap="fetchStats">查询统计</button>
+
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card" wx:if="{{stats}}">
+    <view class="title">统计结果</view>
+    <view>工单数：{{stats.totalCount}}</view>
+    <view>已归档数：{{stats.archivedCount}}</view>
+    <view>平均评分：{{stats.averageScore}}</view>
+    <view>总费用：{{stats.totalExpense}}</view>
+    <view>保内/保外/安装数量：{{stats.serviceCounts.in}} / {{stats.serviceCounts.out}} / {{stats.serviceCounts.install}}</view>
+    <view>保内/保外/安装比例(%)：{{stats.serviceRatio.in}} / {{stats.serviceRatio.out}} / {{stats.serviceRatio.install}}</view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="card">
+    <view>标题</view>
+    <input placeholder="客户现场支持" data-field="title" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view>客户</view>
+    <input placeholder="客户名称" data-field="customer" bindinput="onInput" />
+  </view>
+
+  <view class="card">
+    <view>描述</view>
+    <textarea placeholder="问题描述" data-field="description" bindinput="onInput"></textarea>
+  </view>
+
+  <view class="card">
+    <view>机器数据备份完成</view>
+    <switch checked="{{backupDone}}" bindchange="onToggleBackup" />
+  </view>
+
+  <view class="card">
+    <view class="button-row">
+      <text>差旅费用</text>
+      <button size="mini" bindtap="addExpense">新增明细</button>
+    </view>
+
+    <block wx:for="{{travelExpenses}}" wx:key="index">
+      <view class="card">
+        <input placeholder="日期" data-index="{{index}}" data-field="date" bindinput="onExpenseInput" />
+        <input placeholder="金额" type="number" data-index="{{index}}" data-field="amount" bindinput="onExpenseInput" />
+        <input placeholder="说明" data-index="{{index}}" data-field="description" bindinput="onExpenseInput" />
+        <button size="mini" data-index="{{index}}" bindtap="uploadReceipt">上传单据</button>
+        <view wx:if="{{item.receipts.length}}">已上传 {{item.receipts.length}} 张</view>
+      </view>
+    </block>
+  </view>
+
+  <button type="primary" bindtap="submitTicket">创建工单</button>
+</view>

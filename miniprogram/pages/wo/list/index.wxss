@@ -1,0 +1,13 @@
+.label {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.picker {
+  padding: 8px 0;
+}

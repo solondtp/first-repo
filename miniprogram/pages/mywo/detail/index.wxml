@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card" wx:if="{{workOrder}}">
+    <view class="title">工单号：{{workOrder._id}}</view>
+    <view>客户：{{workOrder.customer}}</view>
+    <view>类型：{{workOrder.extra.type || '-'}}</view>
+    <view>类别：{{workOrder.extra.category || '-'}}</view>
+    <view>状态：{{workOrder.status}}</view>
+    <view>计划日期：{{workOrder.extra.planDate || '-'}}</view>
+    <view>实际开始：{{workOrder.extra.actualStart || '-'}}</view>
+    <view>实际结束：{{workOrder.extra.actualEnd || '-'}}</view>
+    <view>费用合计：{{workOrder.expenseTotal || 0}}</view>
+    <view>备份：{{workOrder.backupDone ? '是' : '否'}}</view>
+  </view>
+
+  <view class="card">
+    <button type="primary" bindtap="goEdit">进入填报</button>
+    <view wx:if="{{!canEdit}}" class="hint">仅 ASSIGNED/IN_PROGRESS/REJECTED 可填报</view>
+  </view>
+</view>

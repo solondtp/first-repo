@@ -1,0 +1,10 @@
+.label {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 12px;
+}

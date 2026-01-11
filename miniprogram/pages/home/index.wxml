@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+  <view class="card" wx:if="{{error}}">{{error}}</view>
+
+  <view class="card" wx:if="{{profile}}">
+    <view>角色：{{profile.role}}</view>
+    <view>姓名：{{profile.name}}</view>
+  </view>
+
+  <view class="card" wx:if="{{profile}}">
+    <view class="button-row">
+      <button type="primary" bindtap="goToCreate">创建工单</button>
+      <button bindtap="goToList">工单列表</button>
+    </view>
+  </view>
+</view>

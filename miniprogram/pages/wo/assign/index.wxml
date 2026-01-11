@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="card">
+    <view class="label">技术员</view>
+    <picker mode="selector" range="{{engineers}}" range-key="name" value="{{engineerIndex}}" bindchange="onEngineerChange">
+      <view class="picker">{{engineers[engineerIndex].name || '请选择'}} </view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="label">计划日期</view>
+    <picker mode="date" value="{{planDate}}" bindchange="onPlanDateChange">
+      <view class="picker">{{planDate || '请选择日期'}} </view>
+    </picker>
+  </view>
+
+  <button type="primary" bindtap="submitAssign">确认派单</button>
+</view>

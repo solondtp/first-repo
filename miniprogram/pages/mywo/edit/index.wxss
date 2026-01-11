@@ -1,0 +1,33 @@
+.label {
+  color: #666;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 80px;
+}
+
+.item-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.expense-item {
+  border: 1px solid #eee;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.picker {
+  padding: 8px 0;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

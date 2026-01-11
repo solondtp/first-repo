@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card" wx:if="{{errorMessage}}">
+    <view class="error">{{errorMessage}}</view>
+  </view>
+
+  <view class="card" wx:if="{{!errorMessage}}">
+    <view>工单号：{{workOrderId}}</view>
+  </view>
+
+  <view class="card" wx:if="{{!errorMessage}}">
+    <view class="label">评分（1-10）</view>
+    <slider min="1" max="10" step="1" value="{{score}}" show-value bindchange="onScoreChange" />
+  </view>
+
+  <view class="card" wx:if="{{!errorMessage}}">
+    <view class="label">备注</view>
+    <textarea placeholder="留下您的评价" bindinput="onCommentInput" value="{{comment}}"></textarea>
+  </view>
+
+  <button type="primary" bindtap="submitScore" disabled="{{!canSubmit}}">提交评分</button>
+</view>

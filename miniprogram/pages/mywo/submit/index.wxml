@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">加载中...</view>
+
+  <view class="card" wx:if="{{workOrder}}">
+    <view class="title">工单号：{{workOrder._id}}</view>
+    <view>客户：{{workOrder.customer}}</view>
+    <view>状态：{{workOrder.status}}</view>
+    <view>故障现象：{{workOrder.extra.fault || '-'}} </view>
+    <view>处理结果：{{workOrder.extra.result || '-'}}</view>
+    <view>处理步骤：{{workOrder.extra.steps ? workOrder.extra.steps.length : 0}}</view>
+    <view>配件数量：{{workOrder.extra.parts ? workOrder.extra.parts.length : 0}}</view>
+    <view>费用合计：{{workOrder.expenseTotal || 0}}</view>
+    <view>备份：{{workOrder.backupDone ? '是' : '否'}}</view>
+    <view>实际开始：{{workOrder.extra.actualStart || '-'}}</view>
+    <view>实际结束：{{workOrder.extra.actualEnd || '-'}}</view>
+  </view>
+
+  <button type="primary" bindtap="submit">确认提交</button>
+</view>
